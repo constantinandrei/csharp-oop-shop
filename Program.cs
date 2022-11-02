@@ -30,4 +30,49 @@ public class Product
         id = new Random().Next(1, 100001);
         iva = 0.22f;
     }
+
+    public int GetId()
+    {
+        return id;
+    }
+
+    public string GetName() 
+    {
+        return name;
+    }
+
+    public void SetName(string name)
+    {
+        this.name = name;
+    }
+
+    public string GetDescription()
+    {
+        return description;
+    }
+
+    public void SetDescription(string description)
+    {
+        this.description = description;
+    }
+
+    public float GetPrice()
+    {
+        return price;
+    }
+
+    public void SetPrice (float price)
+    {
+        this.price = price;
+    }
+
+    public float GetIva()
+    {
+        return iva;
+    }
+
+    public void SetIva(float iva)
+    {
+        this.iva = iva;
+    }
 }
