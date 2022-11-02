@@ -28,6 +28,7 @@ Console.WriteLine("prezzo pieno: " + product1.GetFullPrice());
 
 product1.SetIva(0.04);
 Console.WriteLine("prezzo pieno: " + product1.GetFullPrice());
+Console.WriteLine("iva: " + product1.GetIva());
 
 // cambio nome e prova
 
