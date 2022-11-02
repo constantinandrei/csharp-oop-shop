@@ -39,6 +39,11 @@ Console.WriteLine("nome completo: " + product1.GetFullName());
 product1.SetDescription("per scriverci sopra");
 Console.WriteLine(product1.GetDescription());
 
+// cambio prezzo e prova getter prezzo base
+
+product1.SetPrice(18.4);
+Console.WriteLine(product1.GetPrice());
+
 public class Product
 {
     int id;
@@ -110,6 +115,13 @@ public class Product
     public string GetFullName()
     {
         string idString = this.id.ToString();
-        return this.name + "-" + idString.PadLeft(8, '0');
+        string paddedId = "";
+        for (int i = 0; i < 8 - idString.Length; i++)
+        {
+            paddedId += "0";
+        }
+
+        paddedId += idString;
+        return this.name + "-" + paddedId;
     }
 }
