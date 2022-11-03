@@ -21,101 +21,57 @@ Console.WriteLine("nome completo: " + product1.GetFullName());
 
 // cambio prezzo e prova
 
-product1.SetPrice(9.87);
+product1.Price = 9.87;
 Console.WriteLine("prezzo pieno: " + product1.GetFullPrice());
 
 // cambio iva e prova
 
-product1.SetIva(0.04);
+product1.Iva = 0.04;
 Console.WriteLine("prezzo pieno: " + product1.GetFullPrice());
-Console.WriteLine("iva: " + product1.GetIva());
+Console.WriteLine("iva: " + product1.Iva);
 
 // cambio nome e prova
 
-product1.SetName("postit");
+product1.Name = "postit";
 Console.WriteLine("nome completo: " + product1.GetFullName());
 
 // cambio descrizione e prova
 
-product1.SetDescription("per scriverci sopra");
-Console.WriteLine(product1.GetDescription());
+product1.Description = "per scriverci sopra";
+Console.WriteLine(product1.Description);
 
 // cambio prezzo e prova getter prezzo base
 
-product1.SetPrice(18.4);
-Console.WriteLine(product1.GetPrice());
+product1.Price = 18.4;
+Console.WriteLine(product1.Price);
 
 public class Product
 {
-    int id;
-    string name;
-    string description;
-    double price;
-    double iva;
+    public int Id { get; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public double Price { get; set; }
+    public double Iva { get; set; }
 
     public Product(string name, string description, double price)
     {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        id = new Random().Next(1, 10001);
-        iva = 0.22;
+        Name = name;
+        Description = description;
+        Price = price;
+        Id = new Random().Next(1, 10001);
+        Iva = 0.22;
     }
 
-    public int GetId()
-    {
-        return id;
-    }
-
-    public string GetName() 
-    {
-        return name;
-    }
-
-    public void SetName(string name)
-    {
-        this.name = name;
-    }
-
-    public string GetDescription()
-    {
-        return description;
-    }
-
-    public void SetDescription(string description)
-    {
-        this.description = description;
-    }
-
-    public double GetPrice()
-    {
-        return price;
-    }
-
-    public void SetPrice (double price)
-    {
-        this.price = price;
-    }
-
-    public double GetIva()
-    {
-        return iva;
-    }
-
-    public void SetIva(double iva)
-    {
-        this.iva = iva;
-    }
 
     // metodo che restituisce prezzo + iva
     public double GetFullPrice()
     {
-        return Math.Round((this.price + this.price * iva), 2);
+        return Math.Round((Price + Price * Iva), 2);
     }
 
     public string GetFullName()
     {
-        string idString = this.id.ToString();
+        string idString = this.Id.ToString();
         string paddedId = "";
         for (int i = 0; i < 8 - idString.Length; i++)
         {
@@ -123,6 +79,6 @@ public class Product
         }
 
         paddedId += idString;
-        return this.name + "-" + paddedId;
+        return Name + "-" + paddedId;
     }
 }
